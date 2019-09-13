@@ -1,0 +1,32 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">CONTENEDOR A ALMACENAR</div>
+    <div class="card-body">
+      <form #contenedorForm="ngForm" (ngSubmit)="guardar(contenedorForm.value)">
+        <div class="form-group row">
+          <label for="codigo">Codigo</label>
+            <input type="text"  class="form-control"[(ngModel)]="contenedor.codigo" name="codigo" required minlength="6" maxlength="6" #codigo/>
+        </div>
+        <div class="form-group row">
+          <label for="mercancia">Contenido mercancia</label>
+            <input type="text" class="form-control" [(ngModel)]="contenedor.mercancia" name="mercancia" required #mercancia/>
+        </div>
+        <div class="form-group row">
+          <label for="perecedero">El contenido es perecedero</label>
+            <input type="checkbox" class="form-control" [(ngModel)]="contenedor.perecedero" name="perecedero" #perecedero/>
+        </div>
+        <div class="form-group row">
+          <label for="color">Color</label>
+            <input type="text" class="form-control" [(ngModel)]="contenedor.color"  name="color" required #color/>
+        </div>
+        <div class="form-group row">
+          <label for="peso">Peso</label>
+            <input type="text" class="form-control" [(ngModel)]="contenedor.peso"  name="peso" required #peso/>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary btn btn-block" role="button" type="submit">Crear</button>
+            </div>
+          </div>
+      </form>
+    </div>
+    </div>
