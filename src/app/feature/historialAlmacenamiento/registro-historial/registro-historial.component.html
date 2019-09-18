@@ -2,31 +2,70 @@
     <div class="card-header">CONTENEDOR A ALMACENAR</div>
     <div class="card-body">
       <form #contenedorForm="ngForm" (ngSubmit)="guardar(contenedorForm.value)">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="codigo">Codigo</label>
+              <input type="text"  class="form-control"[(ngModel)]="contenedor.codigo" name="codigo" required minlength="6" maxlength="6" #codigo="ngModel"/>
+              <div class="alert alert-danger" *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+                  <div *ngIf="codigo.errors.required"> 
+                    El codigo es requerido
+                  </div>
+                  <div *ngIf="codigo.errors.minlength">
+                      El codigo debe tener como minimo 6 caracteres
+                  </div>
+                  <div *ngIf="codigo.errors.maxlength">
+                      El codigo debe tener como maximo 6 caracteres
+                  </div>
+                </div>
+          </div>    
+          <div class="form-group col-md-6">
+              <label for="mercancia">Contenido mercancia</label>
+                <input type="text" class="form-control" [(ngModel)]="contenedor.mercancia" name="mercancia" required #mercancia="ngModel"/>
+                <div class="alert alert-danger" *ngIf="mercancia.invalid && (mercancia.dirty || mercancia.touched)">
+                    <div *ngIf="mercancia.errors.required"> 
+                      La mercancia es requerida
+                    </div>
+                  </div>
+            </div>      
+        </div>        
         <div class="form-group row">
-          <label for="codigo">Codigo</label>
-            <input type="text"  class="form-control"[(ngModel)]="contenedor.codigo" name="codigo" required minlength="6" maxlength="6" #codigo/>
-        </div>
-        <div class="form-group row">
-          <label for="mercancia">Contenido mercancia</label>
-            <input type="text" class="form-control" [(ngModel)]="contenedor.mercancia" name="mercancia" required #mercancia/>
-        </div>
-        <div class="form-group row">
-          <label for="perecedero">El contenido es perecedero</label>
-            <input type="checkbox" class="form-control" [(ngModel)]="contenedor.perecedero" name="perecedero" #perecedero/>
-        </div>
-        <div class="form-group row">
-          <label for="color">Color</label>
-            <input type="text" class="form-control" [(ngModel)]="contenedor.color"  name="color" required #color/>
-        </div>
-        <div class="form-group row">
-          <label for="peso">Peso</label>
-            <input type="text" class="form-control" [(ngModel)]="contenedor.peso"  name="peso" required #peso/>
-        </div>
-        <div class="form-group row">
+            <label for="nombre" class="col-fom-label col-sm-8">El contenido es perecedero</label>
             <div class="col-sm-6">
-                <button class="btn btn-primary btn btn-block" role="button" type="submit">Crear</button>
+                <div class="form-check">
+                    <input checked type="radio" class="form-check-input" name="perecedero"
+                          [(ngModel)]="contenedor.perecedero" [value]="true" >
+                    <label class="form-check-label" for="materialUnchecked">Si</label>
+                  </div>            
+                  <div class="form-check"> 
+                    <input type="radio" class="form-check-input" name="perecedero"
+                          [(ngModel)]="contenedor.perecedero" [value]="false">
+                    <label class="form-check-label" for="materialChecked">No</label>
+                  </div>    
             </div>
           </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="color">Color</label>
+                <input type="text" class="form-control" [(ngModel)]="contenedor.color"  name="color" required #color="ngModel"/>
+                <div class="alert alert-danger" *ngIf="color.invalid && (color.dirty || color.touched)">
+                    <div *ngIf="color.errors.required"> 
+                      El color es requerido
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="peso">Peso</label>
+                  <input type="text" class="form-control" [(ngModel)]="contenedor.peso"  name="peso" required #peso="ngModel"/>
+                  <div class="alert alert-danger" *ngIf="peso.invalid && (peso.dirty || peso.touched)">
+                      <div *ngIf="peso.errors.required"> 
+                         El peso es requerido
+                      </div>
+                    </div>
+              </div>
+        </div>       
+        <div class="form-group row">
+            <button class="btn btn-primary btn btn-block" [disabled]="!contenedorForm.form.valid" role="button" type="submit">Crear</button>
+        </div>
       </form>
     </div>
     </div>

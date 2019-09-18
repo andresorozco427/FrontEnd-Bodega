@@ -1,13 +1,11 @@
 <table class="table table-responsive">
-    <table class="table table-stripped table-bordered">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-stripped table-bordered">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th>Fecha Ingreso</th>
                 <th>Fecha Salida</th>
                 <th>Codigo</th>
-                <th>Contenido</th>
-                <th>Color</th>
                 <th>Perecedero</th>
                 <th>Pago</th>
                 <th>Accion</th>
@@ -19,11 +17,12 @@
                 <td>{{ historial.fechaIngreso | date: 'medium'}}</td>
                 <td>{{ historial.fechaSalida == null? 'Almacenado' : historial.fechaSalida | date: 'medium' }}</td>
                 <td>{{ historial.contenedor.codigo }}</td>
-                <td>{{ historial.contenedor.mercancia }}</td>
-                <td>{{ historial.contenedor.color }}</td>
                 <td>{{ historial.contenedor.perecedero==true? 'Contenedor Perecedero' : 'Contenedor No Perecedero'}}</td>
                 <td>{{ historial.pago == 0.0 ? 'No Generado' : historial.pago }}</td>
-                <td><button class="btn btn-danger btn-sm" (click)="salidaContenedor(historial.contenedor.codigo)">Salida</button></td>
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)="consultar(historial.contenedor.codigo)"><i class="fas fa-eye"></i></button>
+                    <button *ngIf="historial.fechaSalida == null" class="btn btn-danger btn-sm" (click)="salidaContenedor(historial.contenedor.codigo)"><i class="fas fa-sign-out-alt"></i></button>
+                </td>
             </tr>
         </tbody>
     </table>

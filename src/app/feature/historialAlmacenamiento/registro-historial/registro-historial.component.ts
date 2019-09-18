@@ -21,11 +21,7 @@ export class RegistroHistorialComponent implements OnInit {
 
   guardar(form: NgForm){    
     this.crearHistorialService.create(form).subscribe(() => {
-      swal.fire('Nuevo cliente',`El contenedor con codigo: ${this.contenedor.codigo} ha sido almacenado exitosamente`, 'success').then(
-        function(){
-          window.location.reload();
-        }
-      )
+      swal.fire('Nuevo Historial',`El contenedor con codigo: ${this.contenedor.codigo} ha sido almacenado exitosamente`, 'success');
     });
   }
 

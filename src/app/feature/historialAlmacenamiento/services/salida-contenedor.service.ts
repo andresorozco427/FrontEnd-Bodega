@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError} from 'rxjs/operators';
+import { Observable, throwError, Subject } from 'rxjs';
+import { catchError, tap} from 'rxjs/operators';
 import swal from 'sweetalert2';
 
 @Injectable({
@@ -13,15 +13,20 @@ export class SalidaContenedorService {
   private ULDENPOINT: string = environment.urlActualizacionHistorialAlmacenamiento;
   constructor(private http: HttpClient) { }
 
+  private _Sujeto = new Subject<any[]>();
+
+  get obtenerObjeto(){
+    return this._Sujeto;
+  }
+
   salida(codigo:string): Observable<any> {
-    let salidaHistorial: Observable<Object>;
-   salidaHistorial = this.http.put(`${this.ULDENPOINT}/${codigo}`, null).pipe(
+   return this.http.put(`${this.ULDENPOINT}/${codigo}`, null).pipe(
+     tap(() => this._Sujeto.next()),
       catchError(e => {
         console.log(e.error.mensaje);
         swal.fire("Error salida", e.error.mensaje, "error");
         return throwError(e);
       })
     )
-    return salidaHistorial;
   }
 }

@@ -9,7 +9,8 @@ import { PaginaNoEncontradaComponent } from './shared'
 import {MenuComponent} from './shared';
 import {FooterComponent} from './shared'
 import { BienvenidaModule } from './feature';
-import { HistorialModule } from './feature'
+import { HistorialModule } from './feature';
+
 
 @NgModule({
   declarations: [

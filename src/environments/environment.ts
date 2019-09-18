@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  urlObtenerHistorialAlmacenamiento: 'http://localhost:8080/api/bodega/obtenerContenedor',
   urlObtenerContenedoresAlmacenado: 'http://localhost:8080/api/bodega/obtenerContenedores',
   urlCreacionDeHistorialAlmacenamiento: 'http://localhost:8080/api/bodega/registrarHistorial',
   urlActualizacionHistorialAlmacenamiento: 'http://localhost:8080/api/bodega//SalidaContenedor'

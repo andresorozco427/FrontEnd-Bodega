@@ -5,7 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { PaginaNoEncontradaComponent } from './shared';
 
 const routes: Routes = [
-  {path: "**", component: PaginaNoEncontradaComponent}
+  {path: 'inicio', loadChildren: () => import('./feature').then(h => h.BienvenidaModule)},
+  {path: 'historialAlmacenamiento', loadChildren: () => import('./feature').then(h => h.HistorialModule)},
+  {path: 'ver', loadChildren: ()=> import('./feature').then(h => h.HistorialModule)},
+  {path: "**", component: PaginaNoEncontradaComponent}  
 ];
 
 @NgModule({

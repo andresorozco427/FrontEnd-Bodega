@@ -1,3 +1,6 @@
-#imageContainer{
-    background-image: url('https://novologistica.com/wp-content/uploads/2017/04/contendores.jpg');
+.container{
+    border: 1px solid;
+    border-style: dotted;
+    background: #ABABAB;
+    margin-top: 89px;
 }

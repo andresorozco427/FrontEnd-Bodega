@@ -14,7 +14,7 @@ export class BienvenidaComponent implements OnInit {
   }
   
   redirigir(){
-    this.router.navigate(["historial"]);
+    this.router.navigate(["historialAlmacenamiento"]);
   }
 
 }
