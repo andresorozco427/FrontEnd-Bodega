@@ -1,6 +1,7 @@
-.container{
+.bienvenida{
     border: 1px solid;
     border-style: dotted;
     background: #ABABAB;
-    margin-top: 89px;
+    opacity: 0.9;
+    margin-top: 15em;
 }

@@ -49,7 +49,7 @@ export class ListaHistorialComponent implements OnInit, OnDestroy{
   ngOnInit() { 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 6,
+      pageLength: 10,
       responsive:true
     }; 
     this.listarHistoriales();

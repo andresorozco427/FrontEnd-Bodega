@@ -1,0 +1,23 @@
+.card{
+    background-color: rgb(0, 0, 0); /* o background-color:#000000; */
+    opacity: 0.9;
+    color: #000;
+}
+
+#createB{
+    color: #0c0c0c !important;
+    border: 1px solid #111111;
+    background-color: #fdfdfd;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #006eff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fdfdfd 0%, #006eff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, #fdfdfd 0%, #006eff 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, #fdfdfd 0%, #006eff 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, #fdfdfd 0%, #006eff 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #fdfdfd 0%, #006eff 100%);
+}
+

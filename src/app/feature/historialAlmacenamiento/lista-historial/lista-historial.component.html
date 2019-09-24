@@ -1,8 +1,8 @@
 <table class="table table-responsive">
-    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-stripped table-bordered">
-        <thead>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered tablaHis">
+        <thead class="thead-dark head">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col"> #</th>
                 <th>Fecha Ingreso</th>
                 <th>Fecha Salida</th>
                 <th>Codigo</th>
@@ -13,15 +13,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let historial of historiales; let i = index">
-                <td>{{i}}</td>
+                <td><strong>{{i}}</strong></td>
                 <td>{{ historial.fechaIngreso | date: 'medium'}}</td>
                 <td>{{ historial.fechaSalida == null? 'Almacenado' : historial.fechaSalida | date: 'medium' }}</td>
                 <td>{{ historial.contenedor.codigo }}</td>
                 <td>{{ historial.contenedor.perecedero==true? 'Contenedor Perecedero' : 'Contenedor No Perecedero'}}</td>
                 <td>{{ historial.pago == 0.0 ? 'No Generado' : historial.pago }}</td>
                 <td>
-                    <button class="btn btn-primary btn-sm" (click)="consultar(historial.contenedor.codigo)"><i class="fas fa-eye"></i></button>
-                    <button *ngIf="historial.fechaSalida == null" class="btn btn-danger btn-sm" (click)="salidaContenedor(historial.contenedor.codigo)"><i class="fas fa-sign-out-alt"></i></button>
+                    <button class="btn btn-primary btn-sm" (click)="consultar(historial.contenedor.codigo)"><i class="fas fa-eye"></i>Ver</button>
+                    <button *ngIf="historial.fechaSalida == null" class="btn btn-danger btn-sm" (click)="salidaContenedor(historial.contenedor.codigo)"><i class="fas fa-sign-out-alt"></i>Salida</button>
                 </td>
             </tr>
         </tbody>
